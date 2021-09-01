@@ -1,0 +1,200 @@
+
+/* Fonts */
+@font-face {
+	font-family: 'Gilroy-Black';
+	src: url('../fonts/gilroy-black.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Gilroy-Bold';
+	src: url('../fonts/gilroy-bold.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Gilroy-Heavy';
+	src: url('../fonts/gilroy-heavy.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Gilroy-Medium';
+	src: url('../fonts/gilroy-medium.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Gilroy-Regular';
+	src: url('../fonts/gilroy-regular.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Gilroy-SemiBold';
+	src: url('../fonts/gilroy-semibold.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Gilroy-Thin';
+	src: url('../fonts/gilroy-thin.ttf') format('truetype')
+}
+
+@font-face {
+	font-family: 'Gilroy-UltraLight';
+	src: url('../fonts/gilroy-ultralight.ttf') format('truetype')
+}
+
+
+//Import
+@import "reset";
+@import "header";
+@import "main";
+@import "footer";
+
+//Mixins
+@import "./mixins/position";
+@import "./mixins/breakpoint";
+@import "./mixins/font";
+@import "./mixins/adaptive";
+
+//Vendor
+@import "./vendor/vars";
+
+
+
+
+
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1300px;
+
+    margin: 0 auto;
+    padding: 0 20px;
+
+    @media (max-width: 1300px) {
+        max-width: 1020px;
+    }
+
+    @media (max-width: 1020px) {
+        max-width: 940px;
+    }
+
+    @media (max-width: 940px) {
+        max-width: 720px;
+    }
+}
+
+/* Repetitive styles */
+.title {
+    font-family: "Gilroy-Regular";
+    color: $titleColor;
+    @include adaptiv-value("font-size", 42, 24, 1);
+}
+
+.minititle {
+    font-family: "Gilroy-Regular";
+    text-transform: uppercase;
+    color: $titleColor;
+    @include adaptiv-value("font-size", 24, 20, 1);
+}
+
+.minititle-bold {
+    font-family: "Gilroy-Black";
+    color: $titleColor;
+    @include adaptiv-value("font-size", 24, 20, 1);
+}
+
+.text { 
+    line-height: 1.4;
+    color: $textColor;
+    font-family: "Gilroy-Regular";
+    @include adaptiv-value("font-size", 18, 16, 1);
+
+    opacity: 0.8;
+}
+
+.text__red {
+    color: #FF3000;
+}
+
+.link {
+    color: $linkColor;
+    font-family: "Gilroy-Bold";
+    @include adaptiv-value("font-size", 18, 16, 1);
+}
+
+.price {
+    color: $textColor;
+    text-transform: uppercase;
+    font-family: "Gilroy-Bold";
+    @include adaptiv-value("font-size", 16, 14, 1);
+
+    display: inline-block;
+}
+
+.btn {
+    color: $btnColor;
+    font-family: "Gilroy-Bold";
+    @include adaptiv-value("font-size", 18, 14, 1);
+
+    position: relative;
+    display: inline-block;
+
+    &::after {
+        content: url('../img/btnArrow.png');
+        position: absolute;
+        top: 0;
+        left: 110%;
+    }
+}
+
+.second__btn {
+    @include adaptiv-value("font-size", 16, 14, 1);
+    font-family: "Gilroy-Bold";
+
+    position: relative;
+    display: inline-block;
+
+    color: #fff;
+
+    background: $btnColor;
+    box-shadow: 0px 50px 74px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+
+    transition: background-color .2s linear;
+
+    &:hover,
+    &:focus {
+        background-color: #781700;
+    }
+}
+
+.active {
+    height: 200px;
+
+    @media (max-width: 430px) {
+        height: 270px;
+    }
+}
+
+.lock {
+    overflow: hidden;
+}
+
+.overlay {
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        background: #000;
+        opacity: 0.3;
+
+        z-index: 10;
+    }
+}
+
